@@ -31,6 +31,8 @@ namespace Nomina.Web
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddScoped<IEmpleoyeRepository, EmpleoyeRepository>();
+
 
             services.Configure<CookiePolicyOptions>(options =>
             {

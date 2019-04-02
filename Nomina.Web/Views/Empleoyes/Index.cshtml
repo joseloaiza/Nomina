@@ -1,0 +1,391 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div id="divHeaderTituloMensaje" style="text-align: center">
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 id="accordion" style="cursor: pointer">
+            <i class="icon-building "></i>&nbsp;Empleados
+        </h4>
+        <div class="options">
+            <h4 id="btnBusqueda" style="cursor: pointer">
+                <a href='#' class="btn btn-info" data-toggle="tooltip" title="Buscar">
+                    <i class="icon-search icon-2x">
+                    </i>
+                </a>&nbsp;
+            </h4>
+            <h4 id="btnNuevo" style="cursor: pointer">
+                <a href='#' class="btn btn-info" data-toggle="tooltip" title="Nuevo">
+                    <i class="icon-plus-sign icon-2x">
+                    </i>
+                </a>&nbsp;
+            </h4>
+        </div>
+    </div>
+    <div id="areaTrabajo">
+        <div id="divbuscar" class="panel panel-body" style="display: none;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblNombre_Busqueda">
+                            Nombre
+                        </label>
+                        <div class="controls">
+                            <input id="txtFiltroNombre" type="text" class="form-control" name="txtFiltroNombre" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblIdPlazoFactura">
+                            Tipo Establecimiento
+                        </label>
+                        <select id="ddltipoestaf" class="form-control" name="ddltipoestaf">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblActivoEsbodegaFiltro">
+                            Es Bodega?
+                        </label>
+                        <div class="controls">
+                            <input id="chkEsBfiltro" type="checkbox" name="chkEsBfiltro" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblpaisf">
+                            País
+                        </label>
+                        <select id="ddlpaisf" class="form-control" name="ddlpaisf">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblCiduadf">
+                            Departamento
+                        </label>
+                        <select id="ddldeptof" class="form-control" name="ddldeptof">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblciudadf">
+                            Ciudad
+                        </label>
+                        <select id="ddlciudadf" class="form-control" name="ddlciudadf">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="btnBuscar" type="button" value="Buscar" class="btn btn-primary" />
+                    <input id="btnLimpiarBusqueda" type="button" value="Limpiar" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div id="divnuevo" class="panel panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="divnombre" class="form-group">
+                        <label id="lblnombre">
+                            Nombre *
+                        </label>
+                        <input id="txtnombre" type="text" class="form-control" name="txtnombre" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="divtipoesta" class="form-group">
+                        <label id="lbltipo">
+                            Tipo Establecimiento *
+                        </label>
+                        <select id="ddltipoesta" class="form-control" name="ddltipoesta">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblconta">
+                            Contacto
+                        </label>
+                        <input id="txtconta" type="text" class="form-control" name="txtconta" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="divpais" class="form-group">
+                        <label id="lblpais">
+                            País *
+                        </label>
+                        <select id="ddlpais" class="form-control" name="ddlpais">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="divdepto" class="form-group">
+                        <label id="lbldepto">
+                            Departamento *
+                        </label>
+                        <select id="ddldepto" class="form-control" name="ddldepto">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="divciudad" class="form-group">
+                        <label id="lblciudad">
+                            Ciudad *
+                        </label>
+                        <select id="ddlciudad" class="form-control" name="ddlciudad">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lbldir">
+                            Dirección
+                        </label>
+                        <input id="txtdir" type="text" class="form-control" name="txtdir" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblubica">
+                            Ubicación
+                        </label>
+                        <input id="txtubica" type="text" class="form-control" name="txtubica" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="divMail" class="form-group">
+                        <label id="Label3">
+                            Email *
+                        </label>
+                        <input id="txtMail" type="text" class="form-control" name="txtMail" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lbltel">
+                            Teléfono
+                        </label>
+                        <input id="txttel" type="text" class="form-control" name="txttel" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblotrotel">
+                            Otro Teléfono
+                        </label>
+                        <input id="txtotrotel" type="text" class="form-control" name="txtotrotel" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblcel">
+                            Celular
+                        </label>
+                        <input id="txtcel" type="text" class="form-control" name="txtcel" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="lblesbo">
+                            Es Bodega?
+                        </label>
+                        <div class="controls">
+                            <input id="chkesb" type="checkbox" name="chkesb" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label id="Label2">
+                            Activo?
+                        </label>
+                        <div class="controls">
+                            <input id="chkactivo" type="checkbox" checked="checked" name="chkactivo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="btnGuardar1" type="button" value="Guardar" class="btn btn-success" />
+                    <input id="btnCancelar" type="button" value="Cancelar" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info table">
+    <div id="userTableContainer" class="panel-body table-responsive">
+        <table id="Templeoyes" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+
+                    <th>Empleoye ID</th>
+                    <th>Empleoye documenttype</th>
+                    <th>Empleoye firsName</th>
+                    <th>Empleoye SecondName</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Eliminar registro
+                </h4>
+            </div>
+            <div class="modal-body">
+                Está seguro de elliminar el registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    NO
+                </button>
+                <button type="button" class="btn btn-primary" id="btnConfirmaEliminar">
+                    Si
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Eliminar registro
+                </h4>
+            </div>
+            <div class="modal-body">
+                Está seguro de elliminar el registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    NO
+                </button>
+                <button type="button" class="btn btn-primary" id="btnConfirmaEliminar">
+                    Si
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/jsbusiness/CrudGeneric.js"></script>
+    <script src="~/lib/DataTables/dataTables.bootstrap.min.js"></script>
+
+    <!-- JS -->
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#areaTrabajo").hide();
+            $("#accordion").on('click', function () {
+                $("#areaTrabajo").slideToggle('slow');
+            });
+            getEmpleoyes();
+
+            $("#btnNuevo").click(function () {
+                HabilitarNuevo(true);
+                limpiarMensajeObligatorios();
+            });
+            $("#btnBusqueda").click(function () {
+                HabilitarNuevo(false);
+            });
+        })
+
+
+
+        function getEmpleoyes() {
+            var columns = [];
+            columns[0] = { "mData": "id" };
+            columns[1] = { "mData": "numDoc" };
+            columns[2] = { "mData": "documentType" };
+            columns[3] = { "mData": "firstName" };
+            getData("/api/EmpleoyesAPI", columns, 4, '#Templeoyes');
+        }
+
+
+
+        function HabilitarNuevo(panelnuevo) {
+            if (panelnuevo) {
+                //$("#txtid").val('-1');
+                //HabilitarDeshabilitar(true);
+                $("#divbuscar").hide("slow");
+                $("#divnuevo").show("slow", function () { $("#areaTrabajo").show("slow"); });
+            }
+            else {
+                $("#divnuevo").hide("slow");
+                $("#divbuscar").show("slow", function () { $("#areaTrabajo").show("slow"); });
+            }
+            LimpiarCampos();
+        }
+
+        function LimpiarCampos() {
+
+
+        }
+
+    </script>
+
+}
+
+
+

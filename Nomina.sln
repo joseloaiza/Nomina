@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomina.Common", "Nomina.Common\Nomina.Common.csproj", "{879D0F96-E9D7-43B4-9F64-5E1C8809D5D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomina.Common", "Nomina.Common\Nomina.Common.csproj", "{879D0F96-E9D7-43B4-9F64-5E1C8809D5D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{D5767EB7-6C36-4E63-9C12-94BAD93E8357}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{EFDD8423-65A7-4454-9052-C5D44C73935A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomina.Web", "Nomina.Web\Nomina.Web.csproj", "{60425627-C37B-4D71-9C40-AB432F4DE458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomina.Web", "Nomina.Web\Nomina.Web.csproj", "{60425627-C37B-4D71-9C40-AB432F4DE458}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{A43018CA-5BFA-419A-B081-13BE53F42578}"
 EndProject
