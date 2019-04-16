@@ -19,10 +19,11 @@ namespace Nomina.Web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Nomina.Web.Data.Entities.Empleoye", b =>
+            modelBuilder.Entity("Nomina.Web.Data.Entities.Employee", b =>
                 {
-                    b.Property<string>("NumDoc")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("AdmissionDate");
 
@@ -38,9 +39,8 @@ namespace Nomina.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<int>("Id");
-
-                    b.Property<string>("ImageUrl");
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(200);
 
                     b.Property<bool>("IsActive");
 
@@ -57,9 +57,9 @@ namespace Nomina.Web.Migrations
                     b.Property<string>("SecondName")
                         .HasMaxLength(20);
 
-                    b.HasKey("NumDoc");
+                    b.HasKey("Id");
 
-                    b.ToTable("Empleoyes");
+                    b.ToTable("Employees");
                 });
 #pragma warning restore 612, 618
         }

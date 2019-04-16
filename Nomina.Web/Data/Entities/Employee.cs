@@ -8,12 +8,9 @@ namespace Nomina.Web.Data.Entities
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class Empleoye : IEntity
+    public class Employee : IEntity
     {
         public int Id { get; set; }
-
-        [Key]
-       public string NumDoc { get; set; }
 
         [Required]
         [Display(Name = "Document Type")]
@@ -37,6 +34,7 @@ namespace Nomina.Web.Data.Entities
         [Display(Name = "Second Last Name")]
         public string SecondLastName { get; set; }
 
+        [MaxLength(200)]
         [Display(Name = "Image")]
         public string ImageUrl { get; set; }
 

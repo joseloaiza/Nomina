@@ -1,0 +1,42 @@
+<div class="container">  
+    <mat-card>  
+    <mat-toolbar color="accent">  
+      <div align="center" style="color:white;text-align: right;">  
+        CRUD operation in Angular 7 using Web api and Sql Database  
+      </div>    
+    </mat-toolbar>  
+  <br><br>  
+    <mat-card-content> 
+                        
+  <br><br>  
+        <table class="table" >  
+            <tr ngclass="btn-primary">  
+              <th class="tbl2">documento</th>  
+              <th class="tbl2">tipo doco</th>  
+              <th class="tbl2">primer nombre</th>  
+              <th class="tbl2">segundo nombre</th>  
+              <th class="tbl2">primer apellido</th>  
+              <th class="tbl2">segundo apellido</th>  
+              <th class="tbl2">Edit</th>  
+              <th class="tbl2">Delete</th>  
+            </tr>  
+            <tr *ngFor="let empleoyee of allEmpleoyees | async">  
+              <td class="tbl2">{{empleoyee.id}}</td>  
+              <td class="tbl2">{{empleoyee.documentType}}</td>  
+              <td class="tbl2">{{empleoyee.firstName}}</td>  
+              <td class="tbl2">{{empleoyee.secondName}}</td>  
+              <td class="tbl2">{{empleoyee.firstLastName}}</td>  
+              <td class="tbl2">{{empleoyee.secondLastName}}</td>  
+              <td class="tbl2">  
+                  <button type="button" class="btn btn-info" matTooltip="Click Edit Button"(click)="loadEmployeeToEdit(employee.id)">Edit</button>  
+              </td>  
+              <td class="tbl2">  
+                  <button type="button" class="btn btn-danger" matTooltip="Click Delete Button"(click)="deleteEmployee(employee.id)">Delete</button>  
+              </td>  
+            </tr>  
+    
+          </table>  
+            
+    </mat-card-content>  
+  </mat-card>  
+  </div> 

@@ -5,11 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190325223905_InitialDb.cs" />
+    <Compile Remove="Migrations\20190325223905_InitialDb.Designer.cs" />
     <Compile Remove="Migrations\20190326003126_ModifyProducts.cs" />
     <Compile Remove="Migrations\20190326003126_ModifyProducts.Designer.cs" />
+    <Compile Remove="Migrations\20190328185535_CreateEmpleoye.cs" />
+    <Compile Remove="Migrations\20190328185535_CreateEmpleoye.Designer.cs" />
+    <Compile Remove="Migrations\20190412011800_InitialDb.cs" />
+    <Compile Remove="Migrations\20190412011800_InitialDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />

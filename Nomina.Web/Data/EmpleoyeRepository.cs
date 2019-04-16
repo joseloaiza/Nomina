@@ -8,7 +8,7 @@ namespace Nomina.Web.Data
     using Entities;
 
 
-    public class EmpleoyeRepository : GenericRepository<Empleoye>, IEmpleoyeRepository
+    public class EmpleoyeRepository : GenericRepository<Employee>, IEmpleoyeRepository
     {
         public EmpleoyeRepository(DataContext context) : base(context)
         {

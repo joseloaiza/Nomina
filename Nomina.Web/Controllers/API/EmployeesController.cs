@@ -12,40 +12,44 @@ namespace Nomina.Web.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmpleoyesController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public EmpleoyesController(DataContext context)
+        public EmployeesController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Empleoyes
+        // GET: api/Employees
         [HttpGet]
-        public IEnumerable<Employee> GetEmpleoyes()
+        public IEnumerable<Employee> GetEmployees()
         {
             return _context.Employees;
         }
 
-        // GET: api/Empleoyes/5
+        // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmpleoye([FromRoute] string id)
+        public async Task<IActionResult> GetEmployee([FromRoute] int id)
         {
-           
-            var empleoye = await _context.Employees.FindAsync(id);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            if (empleoye == null)
+            var employee = await _context.Employees.FindAsync(id);
+
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return Ok(empleoye);
+            return Ok(employee);
         }
 
-        // PUT: api/Empleoyes/5
+        // PUT: api/Employees/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmpleoye([FromRoute] int id, [FromBody] Employee employee)
+        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -65,7 +69,7 @@ namespace Nomina.Web.Controllers.API
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmpleoyeExists(id))
+                if (!EmployeeExists(id))
                 {
                     return NotFound();
                 }
@@ -78,9 +82,9 @@ namespace Nomina.Web.Controllers.API
             return NoContent();
         }
 
-        // POST: api/Empleoyes
+        // POST: api/Employees
         [HttpPost]
-        public async Task<IActionResult> PostEmpleoye([FromBody] Employee employee)
+        public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -90,31 +94,31 @@ namespace Nomina.Web.Controllers.API
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmpleoye", new { id = employee.Id }, employee);
+            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
         }
 
-        // DELETE: api/Empleoyes/5
+        // DELETE: api/Employees/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmpleoye([FromRoute] string id)
+        public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var empleoye = await _context.Employees.FindAsync(id);
-            if (empleoye == null)
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            _context.Employees.Remove(empleoye);
+            _context.Employees.Remove(employee);
             await _context.SaveChangesAsync();
 
-            return Ok(empleoye);
+            return Ok(employee);
         }
 
-        private bool EmpleoyeExists(int id)
+        private bool EmployeeExists(int id)
         {
             return _context.Employees.Any(e => e.Id == id);
         }

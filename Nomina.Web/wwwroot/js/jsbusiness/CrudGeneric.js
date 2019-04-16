@@ -29,7 +29,7 @@ var BindDataTable = function (data, columns, nomtabla) {
         var d = table.row($(this).parents('tr')).data();
         var key = Object.keys(d)[0];
         value = d[key]
-        $('#ModalEliminar').data('id', value).modal('show');
+        $('#ModalNew').data('id', value).modal('show');
     });
 
 

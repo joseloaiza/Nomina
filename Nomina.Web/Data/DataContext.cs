@@ -11,7 +11,7 @@ namespace Nomina.Web.Data
 
     public class DataContext: DbContext
     {
-        public DbSet<Empleoye> Empleoyes { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DataContext(DbContextOptions<DataContext> options): base(options)
         {
 

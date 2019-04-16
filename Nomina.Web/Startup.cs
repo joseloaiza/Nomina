@@ -22,16 +22,46 @@ namespace Nomina.Web
         }
 
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+          
+
             services.AddDbContext<DataContext>(cfg =>
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddScoped<IEmpleoyeRepository, EmpleoyeRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", corsPolicyBuilder => corsPolicyBuilder.AllowAnyOrigin()
+                    // Apply CORS policy for any type of origin  
+                    .AllowAnyMethod()
+                    // Apply CORS policy for any type of http methods  
+                    .AllowAnyHeader()
+                    // Apply CORS policy for any headers  
+                    .AllowCredentials());
+                // Apply CORS policy for all users  
+            });
+
+            //services.AddCors(options =>
+            //{
+            //    //options.AddPolicy("AllowOrigin",
+            //    //    builder => builder.AllowAnyOrigin());
+
+            //    options.AddPolicy("AllowOrigin",
+            //    builder =>
+            //    {
+            //        .AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //        .AllowCredentials());
+            //}
+            //});
 
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -48,6 +78,9 @@ namespace Nomina.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,9 +91,21 @@ namespace Nomina.Web
                 app.UseHsts();
             }
 
+            app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+
+            //app.UseCors(
+            //     options => options.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyHeader()
+            // );
+
+            //app.UseCors(builder => builder
+            //    .AllowAnyOrigin()
+            //    .AllowAnyMethod()
+            //    .AllowAnyHeader()
+            //    .AllowCredentials());
 
             app.UseMvc(routes =>
             {

@@ -8,7 +8,7 @@ namespace Nomina.Web.Data
     using System.Threading.Tasks;
     using Entities;
         
-    public interface IEmpleoyeRepository: IGenericRepository<Empleoye>
+    public interface IEmpleoyeRepository: IGenericRepository<Employee>
     {
 
     }

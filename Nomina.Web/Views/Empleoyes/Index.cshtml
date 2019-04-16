@@ -276,18 +276,101 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Eliminar registro
+                    Empleado
                 </h4>
             </div>
             <div class="modal-body">
-                Está seguro de elliminar el registro?
+                <div class="panel-body">
+                    <div class="form-group col-lg-4">
+                        <label>First Name</label>
+                        <input type="text" name="FirstName" id="FirstName1" class="form-control" placeholder="Ajay" required="" />
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label>Middle Name</label>
+                        <input type="text" name="MiddleName" id="MiddleName1" class="form-control" placeholder="Kumar" required="" />
+                    </div>
+                    <div class="form-group col-lg-4 ">
+                        <label>Surname</label>
+                        <input type="text" name="Surname" id="Surname1" class="form-control" placeholder="Gupta" required="" />
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label>Gender</label>
+                        <label class="radio-inline">
+                            <input type="radio" checked="" value="Male" id="Male1" name="Gender" />
+                            Male
+
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="Female" id="Female1" name="Gender" />
+                            Female.
+                        </label>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-6">
+                        <label>Email ID</label>
+                        <input type="email" readonly="readonly" name="EmailId" id="EmailId1" class="form-control" placeholder="abc@someone.com" required="" />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Date of Birth </label>
+                        <input type="date" name="Dob" id="Dob1" min="1920-01-02" class="form-control datepicker" required="" />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>MaritalStatus</label>
+                        <select name="MaritalStatus" id="MaritalStatus1" class="form-control" required="">
+                            <option value="" disabled="disabled">-- Select -- </option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Hobbies</label>
+                        <input type="text" name="Hobbies" id="Hobbies1" class="form-control" placeholder="Football, Cricket etc." />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Home Telephone</label>
+                        <input type="text" name="TelephoneNo" id="TelephoneNo1" class="form-control" placeholder="1234567890" />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Mobile</label>
+                        <input type="tel" name="MobileNo" id="MobileNo1" class="form-control" required="" placeholder="0987654321" />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Residential Address</label>
+                        <textarea rows="2" name="ResidentialAddress" id="ResidentialAddress1" class="form-control" required=""></textarea>
+                    </div>
+                    <div class="form-group col-lg-6 ">
+                        <label>Pin Code</label>
+                        <input type="text" name="PinCode" id="PinCode1" class="form-control" placeholder="999999" />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>State</label>
+                        <select name="State" id="State1" class="form-control" required="">
+                            <option value="" disabled="disabled">-- Select -- </option>
+                            <option value="Maharashtra">Maharastra</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Delhi">UP</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Odisha">AP</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Nationality</label>
+                        <input type="text" name="title" id="Nationality1" class="form-control" placeholder="Indian" required="" />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Date of Joining</label>
+                        <input type="date" name="Doj" id="Doj1" class="form-control datepicker" required="" />
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">
-                    NO
+                    Guardar
                 </button>
                 <button type="button" class="btn btn-primary" id="btnConfirmaEliminar">
-                    Si
+                    Cancelar
                 </button>
             </div>
         </div>
