@@ -11,50 +11,117 @@ namespace Nomina.Web.Controllers.API
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Nomina.Web.Data;
-    using Nomina.Web.Data.Entities;
+    //using Nomina.Web.Data.Entities;
+    using Nomina.Core.DomainEntities;
+    using Nomina.ServicesInterfaces;
 
     [Route("api/[controller]")]
     [ApiController]
     public class EmpleoyesAPIController : ControllerBase
     {
-        private readonly IEmpleoyeRepository empleoyeRepository;
+        //private readonly IEmpleoyeRepository empleoyeRepository;
+        private readonly IEmployeeService employeeService;
 
-        public EmpleoyesAPIController(IEmpleoyeRepository empleoyeRepository)
+        //public EmpleoyesAPIController(IEmpleoyeRepository empleoyeRepository)
+        //{
+        //    this.empleoyeRepository = empleoyeRepository;
+        //}
+
+        public EmpleoyesAPIController(IEmployeeService employeeService)
         {
-            this.empleoyeRepository = empleoyeRepository;
+            this.employeeService = employeeService;
         }
 
         // GET: api/EmpleoyesAPI
         [HttpGet]
-        [EnableCors("AllowOrigin", headers: "*", methods: "*")]      
-        [Route("AllEmployeeDetails")]
+        [EnableCors("AllowOrigin", headers: "*", methods: "*")]
         public ActionResult GetEmpleoyes()
         {
-            return Ok(this.empleoyeRepository.GetAll());
+            return Ok(this.employeeService.GetAll());
         }
 
-        // GET: api/Empleoyes/5
+
+
+        // GET: api/EmpleoyesAPI/5
         [HttpGet("{id}")]
-        
+        [EnableCors("AllowOrigin", headers: "*", methods: "*")]
         public async Task<IActionResult> GetEmpleoye([FromRoute] int id)
         {
-           var empleoye = await empleoyeRepository.GetByIdAsync(id);
-           return Ok(empleoye);
+            var empleoye = await employeeService.GetByIdAsync(id);
+            return Ok(empleoye);
         }
 
-        // POST: api/Employees
-
+        // POST: api/EmpleoyesAPI
         [HttpPost]
-        [ResponseType(typeof(Employee)) ]
-        public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
+        [ResponseType(typeof(Employees))]
+        [EnableCors("AllowOrigin", headers: "*", methods: "*")]
+        public async Task<IActionResult> PostEmployee([FromBody] Employees employee)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await empleoyeRepository.CreateAsync(employee);
+            await employeeService.CreateAsync(employee);
             return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+        }
+
+        // PUT: api/Employees/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutEmployee(int id, [FromBody] Employees employee)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != employee.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await employeeService.UpdateAsync(employee);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().FullName ==
+                              "Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException")
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEmployee(int id)
+        {
+           
+            if (id == 0)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                Employees empleoye = new Employees() { Id = id };
+                await employeeService.DeleteAsync(empleoye);
+                return Ok();
+
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
 
 

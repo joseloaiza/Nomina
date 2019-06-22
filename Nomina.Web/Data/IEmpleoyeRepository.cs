@@ -6,9 +6,9 @@ namespace Nomina.Web.Data
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Entities;
+    using Nomina.Core.DomainEntities;
         
-    public interface IEmpleoyeRepository: IGenericRepository<Employee>
+    public interface IEmpleoyeRepository: IGenericRepository<Employees>
     {
 
     }

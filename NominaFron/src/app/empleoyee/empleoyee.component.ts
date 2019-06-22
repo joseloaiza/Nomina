@@ -11,6 +11,11 @@ import { Empleoyee } from '../empleoyee';
 })
 export class EmpleoyeeComponent implements OnInit {
 
+
+  displayedColumns: string[] = ['id', 'documentType','firstName','secondName', 'firstLastName', 'secondLastName'];
+  data: Empleoyee[] = [];
+  isLoadingResults = true;
+
   dataSaved = false;  
   employeeForm: any;   
   allEmpleoyees: Observable<Empleoyee[]>;  
@@ -21,7 +26,17 @@ export class EmpleoyeeComponent implements OnInit {
   constructor(private formbulider: FormBuilder, private empleoyeeService:EmpleoyeeService) { }
 
   ngOnInit() {
-    this.loadAllEmployees();  
+    this.empleoyeeService.getEmployees()
+    .subscribe(res => {
+      this.data = res;
+      console.log(this.data);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
+    
+    //this.loadAllEmployees();  
   }
   loadAllEmployees() {
   // this.empleoyeeService.getEmployees().subscribe((data: {}) => {

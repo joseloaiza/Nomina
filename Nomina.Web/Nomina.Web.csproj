@@ -13,17 +13,23 @@
     <Compile Remove="Migrations\20190328185535_CreateEmpleoye.Designer.cs" />
     <Compile Remove="Migrations\20190412011800_InitialDb.cs" />
     <Compile Remove="Migrations\20190412011800_InitialDb.Designer.cs" />
+    <Compile Remove="Migrations\20190412012449_InitialDb.cs" />
+    <Compile Remove="Migrations\20190412012449_InitialDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nomina.ServicesInterfaces\Nomina.ServicesInterfaces.csproj" />
+    <ProjectReference Include="..\Nomina.Services\Nomina.Services.csproj" />
   </ItemGroup>
 
 </Project>

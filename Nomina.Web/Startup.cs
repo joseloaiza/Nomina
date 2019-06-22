@@ -11,6 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nomina.Web.Data;
+using Nomina.Core.RepositoriesInterfaces;
+using Nomina.Infrastructure.Repositories;
+using Nomina.ServicesInterfaces;
+using Nomina.Services;
 
 namespace Nomina.Web
 {
@@ -23,6 +27,10 @@ namespace Nomina.Web
 
         public IConfiguration Configuration { get; }
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+       
+
+
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -34,7 +42,10 @@ namespace Nomina.Web
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddScoped<IEmpleoyeRepository, EmpleoyeRepository>();
+            services.AddScoped(typeof(Core.RepositoriesInterfaces.IGenericRepository<>), typeof(Infrastructure.Repositories.GenericRepository<>));
+
+            //services.AddScoped<IEmpleoyeRepository, EmpleoyeRepository>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
 
             services.AddCors(options =>
             {

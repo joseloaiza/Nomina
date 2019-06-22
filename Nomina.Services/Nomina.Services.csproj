@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nomina.Core\Nomina.Core.csproj" />
+    <ProjectReference Include="..\Nomina.ServicesInterfaces\Nomina.ServicesInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

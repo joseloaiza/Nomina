@@ -5,16 +5,18 @@ namespace Nomina.Web.Data
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Entities;
+
+    using Nomina.Core.DomainEntities;
     using Microsoft.EntityFrameworkCore;
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseClass
     {
-        private readonly DataContext context;
+        private readonly DataContext context;        
 
         public GenericRepository(DataContext context)
         {
             this.context = context;
+          
         }
         
         public IQueryable<T> GetAll()

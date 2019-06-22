@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nomina.Web.Data;
-using Nomina.Web.Data.Entities;
+using Nomina.Core.DomainEntities;
 
 namespace Nomina.Web.Controllers.API
 {
@@ -23,7 +23,7 @@ namespace Nomina.Web.Controllers.API
 
         // GET: api/Employees
         [HttpGet]
-        public IEnumerable<Employee> GetEmployees()
+        public IEnumerable<Employees> GetEmployees()
         {
             return _context.Employees;
         }
@@ -49,7 +49,7 @@ namespace Nomina.Web.Controllers.API
 
         // PUT: api/Employees/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
+        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employees employee)
         {
             if (!ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Nomina.Web.Controllers.API
 
         // POST: api/Employees
         [HttpPost]
-        public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
+        public async Task<IActionResult> PostEmployee([FromBody] Employees employee)
         {
             if (!ModelState.IsValid)
             {
