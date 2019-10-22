@@ -13,20 +13,20 @@ namespace Nomina.Services
     public class EmployeeService : IEmployeeService
     {
        // private readonly IEmployeeRepository iEmployeeRepositor;
-        private readonly IGenericRepository<Employees> _employeeRepository;
+        private readonly IGenericRepository<Employee> _employeeRepository;
 
-        public EmployeeService(IGenericRepository<Employees> employeeRepository)
+        public EmployeeService(IGenericRepository<Employee> employeeRepository)
         {
             _employeeRepository = employeeRepository;           
         }
         
 
-        public async Task CreateAsync(Employees entity)
+        public async Task CreateAsync(Employee entity)
         {
           await _employeeRepository.CreateAsync(entity);           
         }
 
-        public Task DeleteAsync(Employees entity)
+        public Task DeleteAsync(Employee entity)
         {
            return _employeeRepository.DeleteAsync(entity);
         }
@@ -36,17 +36,17 @@ namespace Nomina.Services
             throw new NotImplementedException();
         }
 
-        public IQueryable<Employees> GetAll()
+        public IQueryable<Employee> GetAll()
         {
             return  _employeeRepository.GetAll();
         }
 
-        public Task<Employees> GetByIdAsync(int id)
+        public Task<Employee> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _employeeRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(Employees entity)
+        public async Task UpdateAsync(Employee entity)
         {
             await _employeeRepository.UpdateAsync(entity);
         }

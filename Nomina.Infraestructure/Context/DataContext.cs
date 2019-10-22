@@ -27,7 +27,7 @@ namespace Nomina.Infrastructure.Context
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<EmbargoType> EmbargoType { get; set; }
-        public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmpoyeeGroup> EmpoyeeGroup { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<MotiveLiqContract> MotiveLiqContract { get; set; }

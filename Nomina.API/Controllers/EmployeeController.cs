@@ -43,7 +43,7 @@
 
         // POST: api/Employee
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Employees employee)
+        public async Task<IActionResult> Post([FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -56,7 +56,7 @@
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Employees employee)
+        public async Task<IActionResult> Put(int id, [FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -97,7 +97,7 @@
 
             try
             {
-                Employees empleoye = new Employees() { Id = id };
+                Employee empleoye = new Employee() { Id = id };
                 await employeeService.DeleteAsync(empleoye);
                 return Ok();
 

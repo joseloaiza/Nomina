@@ -6,7 +6,7 @@ namespace Nomina.Core.RepositoriesInterfaces
     using System.Collections.Generic;
     using System.Text;
 
-    public interface IEmployeeRepository: IGenericRepository<Employees>
+    public interface IEmployeeRepository: IGenericRepository<Employee>
     {
 
     }

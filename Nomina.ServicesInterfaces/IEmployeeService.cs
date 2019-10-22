@@ -10,15 +10,15 @@ namespace Nomina.ServicesInterfaces
     using System.Text;
     public  interface IEmployeeService
     {
-        IQueryable<Employees> GetAll();
+        IQueryable<Employee> GetAll();
 
-        Task<Employees> GetByIdAsync(int id);
+        Task<Employee> GetByIdAsync(int id);
 
-        Task CreateAsync(Employees entity);
+        Task CreateAsync(Employee entity);
 
-        Task UpdateAsync(Employees entity);
+        Task UpdateAsync(Employee entity);
 
-        Task DeleteAsync(Employees entity);
+        Task DeleteAsync(Employee entity);
 
         Task<bool> ExistAsync(int id);
     }
