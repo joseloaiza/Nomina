@@ -7,7 +7,7 @@ namespace Nomina.Core.RepositoriesInterfaces
     using System.Threading.Tasks;
     using Nomina.Core.DomainEntities;
 
-    public interface IGenericRepository<T> where T : BaseClass
+    public interface IGenericRepository<T>  where T : BaseClass
     {
         IQueryable<T> GetAll();
 

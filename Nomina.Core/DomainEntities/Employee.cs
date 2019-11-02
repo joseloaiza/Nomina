@@ -46,7 +46,7 @@ namespace Nomina.Core.DomainEntities
         public int? Arpentity { get; set; }
         public int? SeveranceFund { get; set; }
         public int? CompensationFund { get; set; }
-
+        public virtual Bank Bank { get; set; }
                 
     }
 }

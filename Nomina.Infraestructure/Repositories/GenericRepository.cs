@@ -11,7 +11,7 @@ namespace Nomina.Infrastructure.Repositories
     using Nomina.Core.RepositoriesInterfaces;
     using Nomina.Infrastructure.Context;
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseClass
+    public class GenericRepository<T> : IGenericRepository<T>  where T : BaseClass
     {
         private readonly DataContext context;
 

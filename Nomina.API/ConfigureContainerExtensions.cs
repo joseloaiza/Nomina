@@ -29,6 +29,7 @@ namespace Nomina.API
         public static void AddRepository(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            serviceCollection.AddScoped(typeof(IEmployeeRepository), typeof(EmployeeRepository));
         }
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)

@@ -10,16 +10,25 @@ namespace Nomina.Services
     using Nomina.Core.DomainEntities;
     using Nomina.Core.RepositoriesInterfaces;
     using Nomina.ServicesInterfaces;
+    
     public class EmployeeService : IEmployeeService
     {
        // private readonly IEmployeeRepository iEmployeeRepositor;
-        private readonly IGenericRepository<Employee> _employeeRepository;
+        //private readonly IGenericRepository<Employee> _employeeRepository;
+       private readonly IEmployeeRepository _employeeRepository;        
 
-        public EmployeeService(IGenericRepository<Employee> employeeRepository)
+
+        //public EmployeeService(IGenericRepository<Employee> employeeRepository)
+        //{
+        //    _employeeRepository = employeeRepository;           
+        //}
+
+        public EmployeeService(IEmployeeRepository employeeRepository)
         {
-            _employeeRepository = employeeRepository;           
+            _employeeRepository = employeeRepository;
         }
-        
+
+
 
         public async Task CreateAsync(Employee entity)
         {
