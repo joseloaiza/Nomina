@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Usuarios\JJLOAIZA\Downloads\Threenine.Data-master\src\Threenine.Data.csproj" />
     <ProjectReference Include="..\Nomina.Infraestructure\Nomina.Infrastructure.csproj" />
     <ProjectReference Include="..\Nomina.ServicesInterfaces\Nomina.ServicesInterfaces.csproj" />
     <ProjectReference Include="..\Nomina.Services\Nomina.Services.csproj" />

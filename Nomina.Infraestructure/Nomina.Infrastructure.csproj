@@ -12,11 +12,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
-    <PackageReference Include="Threenine.Data" Version="1.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Nomina.Core\Nomina.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

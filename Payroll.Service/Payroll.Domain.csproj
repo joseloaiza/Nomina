@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Payroll.Infrastructure\Payroll.Infrastructure.csproj" />
+    <ProjectReference Include="..\PayrollEntities\Payroll.Models.csproj" />
+  </ItemGroup>
+
+</Project>

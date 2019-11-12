@@ -1,18 +1,17 @@
 ﻿
-
-namespace Nomina.Services
+namespace Payroll.Domain.Services
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Nomina.Core.DomainEntities;
-    using Nomina.Core.RepositoriesInterfaces;
-    using Nomina.ServicesInterfaces;
+    using Payroll.Models.Entities;
+    using Payroll.Domain.Interfaces;
+    using Payroll.Infrastructure; 
     using Threenine.Data;
     
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : IEmployeeService 
     {
        // private readonly IEmployeeRepository iEmployeeRepositor;
         //private readonly IGenericRepository<Employee> _employeeRepository;
@@ -47,7 +46,7 @@ namespace Nomina.Services
            return _employeeRepository.DeleteAsync(entity);
         }
 
-        public Task<bool> ExistAsync(int id)
+        public Task<bool> ExistAsync(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +61,7 @@ namespace Nomina.Services
             return  _employeeRepository.GetAll();
         }
 
-        public Task<Employee> GetByIdAsync(int id)
+        public Task<Employee> GetByIdAsync(Guid id)
         {
             return _employeeRepository.GetByIdAsync(id);
         }

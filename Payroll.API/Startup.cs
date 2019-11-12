@@ -1,5 +1,4 @@
-﻿
-namespace Nomina.API
+﻿namespace Payroll.API
 {
     using System;
     using System.Collections.Generic;
@@ -15,10 +14,10 @@ namespace Nomina.API
     using Microsoft.Extensions.Options;
     using Microsoft.EntityFrameworkCore;
 
-    using Nomina.ServicesInterfaces;
-    using Nomina.Services;
-    using Nomina.Infrastructure;
-    using Nomina.Infrastructure.Context;
+    using Payroll.Domain.Interfaces;
+    using Payroll.Domain.Services;
+    using Payroll.Infrastructure;
+
     using Threenine.Data.DependencyInjection;
 
     public class Startup
@@ -38,14 +37,14 @@ namespace Nomina.API
             services.AddDbContext<DataContext>(cfg =>
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
-            }).AddUnitOfWork<DataContext>(); 
+            }).AddUnitOfWork<DataContext>();
 
             //services.AddDbContext();
 
             services.AddRepository();
 
             services.AddTransientServices();
-                      
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowOrigin", corsPolicyBuilder => corsPolicyBuilder.AllowAnyOrigin()
@@ -66,7 +65,7 @@ namespace Nomina.API
         {
             if (env.IsDevelopment())
             {
-               
+
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -84,7 +83,11 @@ namespace Nomina.API
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            
+
         }
     }
 }
+
+
+
+

@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nomina.Core\Nomina.Core.csproj" />
-    <ProjectReference Include="..\Nomina.ServicesInterfaces\Nomina.ServicesInterfaces.csproj" />
+    <ProjectReference Include="..\..\..\..\Usuarios\JJLOAIZA\Downloads\Threenine.Data-master\src\Threenine.Data.csproj" />
   </ItemGroup>
 
 </Project>
