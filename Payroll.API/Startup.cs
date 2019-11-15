@@ -17,8 +17,9 @@
     using Payroll.Domain.Interfaces;
     using Payroll.Domain.Services;
     using Payroll.Infrastructure;
+    using Payroll.Infrastructure.DependencyInjection;
 
-    using Threenine.Data.DependencyInjection;
+
 
     public class Startup
     {

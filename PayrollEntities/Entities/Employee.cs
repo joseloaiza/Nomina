@@ -5,17 +5,17 @@ namespace Payroll.Models.Entities
 {
     public partial class Employee: BaseClass
     {
-        public Employee()
-        {
-            CompanyEmployee = new HashSet<CompanyEmployee>();
-            EmployeeContract = new HashSet<EmployeeContract>();
-            EmployeeJob = new HashSet<EmployeeJob>();
-            EmployeePayment = new HashSet<EmployeePayment>();
-            EmployeeRecurringConcept = new HashSet<EmployeeRecurringConcept>();
-            EmployeeSalary = new HashSet<EmployeeSalary>();
-            EmployeeSocialSecurity = new HashSet<EmployeeSocialSecurity>();
-            EmployeeWorking = new HashSet<EmployeeWorking>();
-        }
+        //public Employee()
+        //{
+        //    CompanyEmployee = new HashSet<CompanyEmployee>();
+        //    EmployeeContract = new HashSet<EmployeeContract>();
+        //    EmployeeJob = new HashSet<EmployeeJob>();
+        //    EmployeePayment = new HashSet<EmployeePayment>();
+        //    EmployeeRecurringConcept = new HashSet<EmployeeRecurringConcept>();
+        //    EmployeeSalary = new HashSet<EmployeeSalary>();
+        //    EmployeeSocialSecurity = new HashSet<EmployeeSocialSecurity>();
+        //    EmployeeWorking = new HashSet<EmployeeWorking>();
+        //}
 
 
         public Guid CompanyId { get; set; }
@@ -32,16 +32,15 @@ namespace Payroll.Models.Entities
         public string Phone { get; set; }
         public string CellPhone { get; set; }
         public string Email { get; set; }
-
         public bool? IsActive { get; set; }
 
-        public virtual ICollection<CompanyEmployee> CompanyEmployee { get; set; }
-        public virtual ICollection<EmployeeContract> EmployeeContract { get; set; }
-        public virtual ICollection<EmployeeJob> EmployeeJob { get; set; }
-        public virtual ICollection<EmployeePayment> EmployeePayment { get; set; }
-        public virtual ICollection<EmployeeRecurringConcept> EmployeeRecurringConcept { get; set; }
-        public virtual ICollection<EmployeeSalary> EmployeeSalary { get; set; }
-        public virtual ICollection<EmployeeSocialSecurity> EmployeeSocialSecurity { get; set; }
-        public virtual ICollection<EmployeeWorking> EmployeeWorking { get; set; }
+        //public virtual ICollection<CompanyEmployee> CompanyEmployee { get; set; }
+        //public virtual ICollection<EmployeeContract> EmployeeContract { get; set; }
+        //public virtual ICollection<EmployeeJob> EmployeeJob { get; set; }
+        //public virtual ICollection<EmployeePayment> EmployeePayment { get; set; }
+        //public virtual ICollection<EmployeeRecurringConcept> EmployeeRecurringConcept { get; set; }
+        //public virtual ICollection<EmployeeSalary> EmployeeSalary { get; set; }
+        //public virtual ICollection<EmployeeSocialSecurity> EmployeeSocialSecurity { get; set; }
+        //public virtual ICollection<EmployeeWorking> EmployeeWorking { get; set; }
     }
 }

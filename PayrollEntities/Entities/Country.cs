@@ -7,7 +7,7 @@ namespace Payroll.Models.Entities
     {
         public Country()
         {
-            State = new HashSet<State>();
+            //State = new HashSet<State>();
         }
 
         public Guid Id { get; set; }
@@ -19,6 +19,6 @@ namespace Payroll.Models.Entities
         public string UpdateUser { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual ICollection<State> State { get; set; }
+        //public virtual ICollection<State> State { get; set; }
     }
 }

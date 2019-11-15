@@ -10,7 +10,7 @@ namespace Payroll.Domain.Interfaces
     using System.Text;
     public  interface IEmployeeService
     {
-        IQueryable<Employee> GetAll();
+        IQueryable<Country> GetAll();
 
         Task<Employee> GetByIdAsync(Guid id);
 
