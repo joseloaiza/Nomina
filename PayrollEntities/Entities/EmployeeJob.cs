@@ -5,10 +5,10 @@ namespace Payroll.Models.Entities
 {
     public partial class EmployeeJob
     {
-        public EmployeeJob()
-        {
-            Movement = new HashSet<Movement>();
-        }
+        //public EmployeeJob()
+        //{
+        //    Movement = new HashSet<Movement>();
+        //}
 
         public Guid Id { get; set; }
         public Guid EmployeeId { get; set; }
@@ -26,15 +26,15 @@ namespace Payroll.Models.Entities
         public string UpdateUser { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual CompanyArea CompanyArea { get; set; }
-        public virtual CompanyCostCenter CompanyCostCenter { get; set; }
-        public virtual CompanyEmployeeGroup CompanyEmployeeGroup { get; set; }
-        public virtual CompanyOrganizationalUnit CompanyOrganizationalUnit { get; set; }
-        public virtual CompanyPayrollArea CompanyPayrollArea { get; set; }
-        public virtual CompanyPosition CompanyPosition { get; set; }
-        public virtual CompanyProcess CompanyProcess { get; set; }
-        public virtual CompanySubsidiary CompanySubsidiary { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual ICollection<Movement> Movement { get; set; }
+        //public virtual CompanyArea CompanyArea { get; set; }
+        //public virtual CompanyCostCenter CompanyCostCenter { get; set; }
+        //public virtual CompanyEmployeeGroup CompanyEmployeeGroup { get; set; }
+        //public virtual CompanyOrganizationalUnit CompanyOrganizationalUnit { get; set; }
+        //public virtual CompanyPayrollArea CompanyPayrollArea { get; set; }
+        //public virtual CompanyPosition CompanyPosition { get; set; }
+        //public virtual CompanyProcess CompanyProcess { get; set; }
+        //public virtual CompanySubsidiary CompanySubsidiary { get; set; }
+        //public virtual Employee Employee { get; set; }
+        //public virtual ICollection<Movement> Movement { get; set; }
     }
 }

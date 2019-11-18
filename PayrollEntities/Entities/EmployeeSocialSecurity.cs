@@ -5,11 +5,11 @@ namespace Payroll.Models.Entities
 {
     public partial class EmployeeSocialSecurity
     {
-        public EmployeeSocialSecurity()
-        {
-            InverseEntityCesantias = new HashSet<EmployeeSocialSecurity>();
-            InverseEntityPension = new HashSet<EmployeeSocialSecurity>();
-        }
+        //public EmployeeSocialSecurity()
+        //{
+        //    InverseEntityCesantias = new HashSet<EmployeeSocialSecurity>();
+        //    InverseEntityPension = new HashSet<EmployeeSocialSecurity>();
+        //}
 
         public Guid Id { get; set; }
         public Guid EmployeeId { get; set; }
@@ -24,13 +24,13 @@ namespace Payroll.Models.Entities
         public string UpdateUser { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual Employee Employee { get; set; }
-        public virtual EmployeeSocialSecurity EntityCesantias { get; set; }
-        public virtual EmployeeSocialSecurity EntityPension { get; set; }
-        public virtual SocialSecurityEntity EntitySalud { get; set; }
-        public virtual ContributorSubType SubTypeOfContributor { get; set; }
-        public virtual ContributorType TypeOfContributor { get; set; }
-        public virtual ICollection<EmployeeSocialSecurity> InverseEntityCesantias { get; set; }
-        public virtual ICollection<EmployeeSocialSecurity> InverseEntityPension { get; set; }
+        //public virtual Employee Employee { get; set; }
+        //public virtual EmployeeSocialSecurity EntityCesantias { get; set; }
+        //public virtual EmployeeSocialSecurity EntityPension { get; set; }
+        //public virtual SocialSecurityEntity EntitySalud { get; set; }
+        //public virtual ContributorSubType SubTypeOfContributor { get; set; }
+        //public virtual ContributorType TypeOfContributor { get; set; }
+        //public virtual ICollection<EmployeeSocialSecurity> InverseEntityCesantias { get; set; }
+        //public virtual ICollection<EmployeeSocialSecurity> InverseEntityPension { get; set; }
     }
 }

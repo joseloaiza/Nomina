@@ -32,14 +32,13 @@ namespace Payroll.Infrastructure
         public virtual DbSet<EmpoyeeGroup> EmpoyeeGroup { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<MotiveLiqContract> MotiveLiqContract { get; set; }
-        public virtual DbSet<City> Municipality { get; set; }
+        public virtual DbSet<City> City { get; set; }
         public virtual DbSet<OrganizationalUnit> OrganizationalUnit { get; set; }
-        public virtual DbSet<PaymentMethod> Paymetshape { get; set; }
+        public virtual DbSet<PaymentMethod> PaymentMethod { get; set; }
         public virtual DbSet<Process> Process { get; set; }
         public virtual DbSet<SalaryType> SalaryType { get; set; }
-        public virtual DbSet<SocialSecurityEntity> Ssentity { get; set; }
-
-       
+        //public virtual DbSet<SocialSecurityEntity> SocialSecurityEntity { get; set; }
+        //public virtual DbSet<SocialSecurityEntityType> SocialSecurityEntityType { get; set; }
 
     }
 }
