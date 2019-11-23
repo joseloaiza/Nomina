@@ -35,15 +35,23 @@ namespace Payroll.Domain.Services
         }
         
 
-        public async Task CreateAsync(Employee entity)
+        public async Task CreateAsync(Country entity)
         {
-            throw new NotImplementedException();
-           // await _employeeRepository.CreateAsync(entity);           
+            var repo = _UOW.GetRepositoryAsync<Country>();
+            // var r = _UOW.GetRepository<Employee>();
+            await repo.AddAsync(entity);
+            _UOW.SaveChanges();
+            //return  _employeeRepository.GetAll();
+            // await _employeeRepository.CreateAsync(entity);           
         }
 
-        public Task DeleteAsync(Employee entity)
+        public async Task DeleteAsync(Guid id)
+        //public void DeleteAsync(Country entity)
         {
-            throw new NotImplementedException();
+            var repo = _UOW.GetRepository<Country>();
+            repo.Delete(id);
+            _UOW.SaveChanges();
+            
             // return _employeeRepository.DeleteAsync(entity);
         }
 
@@ -60,16 +68,22 @@ namespace Payroll.Domain.Services
             //return  _employeeRepository.GetAll();
         }
 
-        public Task<Employee> GetByIdAsync(Guid id)
+        public Country GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var repo = _UOW.GetReadOnlyRepository<Country>();
+            return repo.Search(id);
+            
+           // throw new NotImplementedException();
             //return _employeeRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(Employee entity)
+        public async Task UpdateAsync(Country entity)
         {
-            throw new NotImplementedException();
-           // await _employeeRepository.UpdateAsync(entity);
+            var repo = _UOW.GetRepositoryAsync<Country>();
+            // var r = _UOW.GetRepository<Employee>();
+            repo.UpdateAsync(entity);
+            _UOW.SaveChanges();
+
         }
     }
 }

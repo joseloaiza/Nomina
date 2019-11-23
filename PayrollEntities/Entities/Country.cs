@@ -18,7 +18,6 @@ namespace Payroll.Models.Entities
         public DateTime? UpdateDate { get; set; }
         public string UpdateUser { get; set; }
         public bool? IsActive { get; set; }
-
-        //public virtual ICollection<State> State { get; set; }
+        public virtual ICollection<State> State { get; set; }
     }
 }

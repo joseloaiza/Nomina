@@ -67,7 +67,7 @@ namespace Payroll.Infrastructure
             return _dbSet.AddRangeAsync(entities);
         }
 
-
+       
         public Task AddAsync(IEnumerable<T> entities,
             CancellationToken cancellationToken = default(CancellationToken))
         {

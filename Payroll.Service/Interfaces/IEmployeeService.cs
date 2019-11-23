@@ -12,13 +12,14 @@ namespace Payroll.Domain.Interfaces
     {
         IQueryable<Country> GetAll();
 
-        Task<Employee> GetByIdAsync(Guid id);
+        Country GetByIdAsync(Guid id);
 
-        Task CreateAsync(Employee entity);
+        Task CreateAsync(Country entity);
 
-        Task UpdateAsync(Employee entity);
+        Task UpdateAsync(Country entity);
 
-        Task DeleteAsync(Employee entity);
+        //void DeleteAsync(Country entity);
+        Task DeleteAsync(Guid id);
 
         Task<bool> ExistAsync(Guid id);
     }

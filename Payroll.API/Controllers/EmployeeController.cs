@@ -39,15 +39,15 @@
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
         [EnableCors("AllowOrigin", headers: "*", methods: "*")]
-        public async Task<IActionResult> Get([FromRoute] Guid id)
+        public Country Get([FromRoute] Guid id)
         {
-            var empleoye = await employeeService.GetByIdAsync(id);
-            return Ok(empleoye);
+            Country _country;
+            return _country = employeeService.GetByIdAsync(id);           
         }
 
         // POST: api/Employee
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Employee employee)
+        public async Task<IActionResult> Post([FromBody] Country employee)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +60,7 @@
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] Employee employee)
+        public async Task<IActionResult> Put(Guid id, [FromBody] Country employee)
         {
             if (!ModelState.IsValid)
             {
@@ -92,6 +92,7 @@
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(Guid id)
+        //public void DeleteEmployee(Guid id)
         {
 
             //if (id == 0)
@@ -101,8 +102,8 @@
 
             try
             {
-                Employee empleoye = new Employee() { Id = id };
-                await employeeService.DeleteAsync(empleoye);
+              //  Country empleoye = new Country() { Id = id };
+               await employeeService.DeleteAsync(id);
                 return Ok();
 
             }
