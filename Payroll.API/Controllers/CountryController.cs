@@ -18,14 +18,14 @@
     //cambio jose
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeController : ControllerBase
+    public class CountryController : ControllerBase
     {
 
-        private readonly IEmployeeService employeeService;
+        private readonly ICountryService countryService;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public CountryController(ICountryService countryService)
         {
-            this.employeeService = employeeService;
+            this.countryService = countryService;
         }
 
         // GET: api/Employee
@@ -33,53 +33,54 @@
         [EnableCors("AllowOrigin", headers: "*", methods: "*")]
         public ActionResult Get()
         {
-            return Ok(this.employeeService.GetAll());
+            var response = countryService.Get();
+            return Ok(response.Result);
         }
 
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
         [EnableCors("AllowOrigin", headers: "*", methods: "*")]
-        public Country Get([FromRoute] Guid id)
+        public ActionResult Get([FromRoute] Guid id)
         {
-            Country _country;
-            return _country = employeeService.GetByIdAsync(id);           
+            var response = countryService.Get(id);
+            return Ok(response);
         }
 
         // POST: api/Employee
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Country employee)
+        public async Task<IActionResult> Post([FromBody] Country country)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await employeeService.CreateAsync(employee);
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            await countryService.Create(country);
+            return CreatedAtAction("GetEmployee", new { id = country.Id }, country);
         }
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] Country employee)
+        public async Task<IActionResult> Put(Guid id, [FromBody] Country country)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != employee.Id)
-            {
-                return BadRequest();
-            }
             try
             {
-                await employeeService.UpdateAsync(employee);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != country.Id)
+                {
+                    return BadRequest();
+                }
+
+                await countryService.Update(country);
                 return Ok();
             }
             catch (Exception ex)
             {
-                if (ex.GetType().FullName ==
-                              "Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException")
+                if (ex.GetType().FullName == "Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException")
                 {
                     return NotFound();
                 }
@@ -91,19 +92,16 @@
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(Guid id)
-        //public void DeleteEmployee(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-
-            //if (id == 0)
-            //{
-            //    return BadRequest();
-            //}
-
             try
             {
-              //  Country empleoye = new Country() { Id = id };
-               await employeeService.DeleteAsync(id);
+                if (id == null)
+                {
+                    return BadRequest();
+                }
+
+                await countryService.Delete(id);
                 return Ok();
 
             }

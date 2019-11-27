@@ -1,13 +1,8 @@
-﻿
+﻿using System;
 
-namespace Payroll.Models
+namespace Payroll.Models.Common
 {
-
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
-    public abstract class BaseClass
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
         public DateTime CreateDate { get; set; }

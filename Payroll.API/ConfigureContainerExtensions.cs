@@ -32,12 +32,12 @@ namespace Payroll.API
         public static void AddRepository(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            serviceCollection.AddScoped(typeof(IEmployeeRepository), typeof(EmployeeRepository));
+            serviceCollection.AddScoped(typeof(ICountryRepository), typeof(CountryRepository));
         }
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IEmployeeService, EmployeeService>();
+            serviceCollection.AddTransient<ICountryService, CountryService>();
            
         }
 
